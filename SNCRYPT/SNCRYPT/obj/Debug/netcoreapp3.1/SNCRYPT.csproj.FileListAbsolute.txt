@@ -1,0 +1,4 @@
+C:\Users\tfaon\Desktop\SNCRYPT\SNCRYPT\SNCRYPT\obj\Debug\netcoreapp3.1\SNCRYPT.csprojAssemblyReference.cache
+C:\Users\tfaon\Desktop\SNCRYPT\SNCRYPT\SNCRYPT\obj\Debug\netcoreapp3.1\SNCRYPT.AssemblyInfoInputs.cache
+C:\Users\tfaon\Desktop\SNCRYPT\SNCRYPT\SNCRYPT\obj\Debug\netcoreapp3.1\SNCRYPT.AssemblyInfo.cs
+C:\Users\tfaon\Desktop\SNCRYPT\SNCRYPT\SNCRYPT\obj\Debug\netcoreapp3.1\SNCRYPT.csproj.CoreCompileInputs.cache

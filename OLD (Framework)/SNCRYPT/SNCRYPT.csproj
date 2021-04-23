@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{594DFB25-8E3A-4C31-BB9C-8303972D7EF1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Crypt</RootNamespace>
-    <AssemblyName>Crypt</AssemblyName>
+    <RootNamespace>SNCRYPT</RootNamespace>
+    <AssemblyName>SNCRYPT</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
