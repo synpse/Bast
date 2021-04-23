@@ -1,0 +1,7 @@
+C:\Users\tfaon\source\repos\Crypt\Crypt\bin\Debug\Crypt.exe.config
+C:\Users\tfaon\source\repos\Crypt\Crypt\bin\Debug\Crypt.exe
+C:\Users\tfaon\source\repos\Crypt\Crypt\bin\Debug\Crypt.pdb
+C:\Users\tfaon\source\repos\Crypt\Crypt\obj\Debug\Crypt.csprojAssemblyReference.cache
+C:\Users\tfaon\source\repos\Crypt\Crypt\obj\Debug\Crypt.csproj.CoreCompileInputs.cache
+C:\Users\tfaon\source\repos\Crypt\Crypt\obj\Debug\Crypt.exe
+C:\Users\tfaon\source\repos\Crypt\Crypt\obj\Debug\Crypt.pdb

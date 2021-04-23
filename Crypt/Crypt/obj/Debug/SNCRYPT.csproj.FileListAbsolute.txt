@@ -1,0 +1,7 @@
+C:\Users\tfaon\Desktop\SNCRYPT\Crypt\Crypt\bin\Debug\Crypt.exe.config
+C:\Users\tfaon\Desktop\SNCRYPT\Crypt\Crypt\bin\Debug\Crypt.exe
+C:\Users\tfaon\Desktop\SNCRYPT\Crypt\Crypt\bin\Debug\Crypt.pdb
+C:\Users\tfaon\Desktop\SNCRYPT\Crypt\Crypt\obj\Debug\SNCRYPT.csprojAssemblyReference.cache
+C:\Users\tfaon\Desktop\SNCRYPT\Crypt\Crypt\obj\Debug\SNCRYPT.csproj.CoreCompileInputs.cache
+C:\Users\tfaon\Desktop\SNCRYPT\Crypt\Crypt\obj\Debug\Crypt.exe
+C:\Users\tfaon\Desktop\SNCRYPT\Crypt\Crypt\obj\Debug\Crypt.pdb
