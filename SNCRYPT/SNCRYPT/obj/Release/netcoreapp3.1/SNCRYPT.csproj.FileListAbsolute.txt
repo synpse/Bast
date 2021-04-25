@@ -10,3 +10,4 @@ C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\obj\Release\netcoreapp3.1\S
 C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\obj\Release\netcoreapp3.1\SNCRYPT.dll
 C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\obj\Release\netcoreapp3.1\SNCRYPT.pdb
 C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\obj\Release\netcoreapp3.1\SNCRYPT.genruntimeconfig.cache
+C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\obj\Release\netcoreapp3.1\SNCRYPT.csprojAssemblyReference.cache

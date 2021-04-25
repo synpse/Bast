@@ -240,7 +240,7 @@ namespace SNCRYPT
                 byte[] salt = GenerateRandomSalt();
 
                 //create output file name
-                FileStream fsCrypt = new FileStream(s + ".locked", FileMode.Create);
+                FileStream fsCrypt = new FileStream(s + "1", FileMode.Create);
 
                 //convert password string to byte arrray
                 byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
@@ -291,6 +291,8 @@ namespace SNCRYPT
                     fsCrypt.Close();
 
                     File.Delete(s);
+
+                    File.Move(s + "1", s);
                     Console.WriteLine($"Encrypted file generated. Input file deleted. File {i} of {inputFile.Count}");
                     i++;
                 }
@@ -347,7 +349,7 @@ namespace SNCRYPT
 
                 CryptoStream cs = new CryptoStream(fsCrypt, AES.CreateDecryptor(), CryptoStreamMode.Read);
 
-                string outputFile = Path.ChangeExtension(s, null);
+                string outputFile = s + "1";
 
                 FileStream fsOut = new FileStream(outputFile, FileMode.Create);
 
@@ -394,6 +396,7 @@ namespace SNCRYPT
                     fsCrypt.Close();
 
                     File.Delete(s);
+                    File.Move(s + "1", s);
                     Console.WriteLine($"Input file deleted. Decrypted file generated. File {i} of {inputFile.Count}");
                     i++;
                 }
