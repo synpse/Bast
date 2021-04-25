@@ -1,0 +1,5 @@
+C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\bin\Release\netcoreapp3.1\publish\SNCRYPT.exe
+C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\bin\Release\netcoreapp3.1\publish\SNCRYPT.dll
+C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\bin\Release\netcoreapp3.1\publish\SNCRYPT.deps.json
+C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\bin\Release\netcoreapp3.1\publish\SNCRYPT.runtimeconfig.json
+C:\Users\tfa\Documents\Repos\SNCRYPT\SNCRYPT\SNCRYPT\bin\Release\netcoreapp3.1\publish\SNCRYPT.pdb

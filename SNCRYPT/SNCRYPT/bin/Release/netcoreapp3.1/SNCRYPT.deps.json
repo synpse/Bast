@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "SNCRYPT/1.0.0": {
+        "runtime": {
+          "SNCRYPT.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SNCRYPT/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

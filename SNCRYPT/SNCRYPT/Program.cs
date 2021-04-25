@@ -4,7 +4,6 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Threading;
-using System.Windows.Forms;
 
 namespace SNCRYPT
 {
@@ -17,169 +16,125 @@ namespace SNCRYPT
         [STAThread]
         static void Main(string[] args)
         {
-            Start();
+            Start(args);
         }
 
-        public static void Start()
+        public static void Start(string[] args)
         {
             Console.Clear();
-            Console.Write("Encrypt, Decrypt or Quit? (E/D/Q): ");
-            string str = Console.ReadLine();
 
-            switch (str.ToUpperInvariant())
+            switch (args[0].ToUpperInvariant())
             {
                 case "E":
-                    FileOrFolderEncrypt();
+                    FileOrFolderEncrypt(args);
                     break;
 
                 case "D":
-                    FileOrFolderDecrypt();
-                    break;
-
-                case "Q":
-                    Environment.Exit(1);
+                    FileOrFolderDecrypt(args);
                     break;
 
                 default:
-                    Start();
+                    Console.WriteLine("Usage => Use first argument as E - Encrypt or D - Descrypt.");
                     break;
             }
 
-            Console.WriteLine("Done.");
-            Thread.Sleep(1500);
-            Start();
+            Console.WriteLine("Done. Shutting down...");
         }
 
-        public static void FileOrFolderEncrypt()
+        public static void FileOrFolderEncrypt(string[] args)
         {
             Console.Clear();
-            Console.Write("File, Directory or Back? (F/D/B): ");
-            string str = Console.ReadLine();
 
             string password;
             string confirmPw;
             List<string> file;
             string folder;
 
-            switch (str.ToUpperInvariant())
+            FileAttributes fas = File.GetAttributes(args[1]);
+
+            if ((fas & FileAttributes.Directory) == FileAttributes.Directory)
             {
-                case "F":
-                    AskFile(out file);
+                file = DirRoutine(args[1]);
+                Console.Clear();
 
-                    Console.WriteLine("Press enter to continue...");
-                    Console.ReadLine();
-                    Console.Clear();
+                Console.Write("Set a password: ");
+                password = AskPassword();
 
-                    Console.Write("Set a password: ");
-                    password = AskPassword();
+                Console.WriteLine("\n");
 
-                    Console.WriteLine("\n");
+                Console.Write("Confirm password: ");
+                confirmPw = AskPassword();
 
-                    Console.Write("Confirm password: ");
-                    confirmPw = AskPassword();
+                Console.Clear();
 
-                    Console.Clear();
+                if (password == confirmPw)
+                {
+                    FileEncrypt(file, password);
+                }
+                else
+                {
+                    Console.WriteLine("Passwords do not match! Returning...");
+                }
+            }
+            else
+            {
+                file = new List<string>();
+                file.Add(args[1]);
 
-                    if (password == confirmPw)
-                    {
-                        FileEncrypt(file, password);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Passwords do not match! Returning...");
-                    }
-                    break;
+                Console.Write("Set a password: ");
+                password = AskPassword();
 
-                case "D":
-                    AskFolder(out folder);
+                Console.Write("\n");
 
-                    file = DirRoutine(folder);
+                Console.Write("Confirm password: ");
+                confirmPw = AskPassword();
 
-                    Console.WriteLine("Press enter to continue...");
-                    Console.ReadLine();
-                    Console.Clear();
+                Console.Clear();
 
-                    Console.Write("Set a password: ");
-                    password = AskPassword();
-
-                    Console.Write("\n");
-
-                    Console.Write("Confirm password: ");
-                    confirmPw = AskPassword();
-
-                    Console.Clear();
-
-                    if (password == confirmPw)
-                    {
-                        FileEncrypt(file, password);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Passwords do not match! Returning...");
-                    }
-                    break;
-
-                case "B":
-                    Start();
-                    break;
-
-                default:
-                    FileOrFolderEncrypt();
-                    break;
+                if (password == confirmPw)
+                {
+                    FileEncrypt(file, password);
+                }
+                else
+                {
+                    Console.WriteLine("Passwords do not match! Returning...");
+                }
             }
         }
 
-        public static void FileOrFolderDecrypt()
+        public static void FileOrFolderDecrypt(string[] args)
         {
             Console.Clear();
-            Console.Write("File, Directory or Back? (F/D/B): ");
-            string str = Console.ReadLine();
 
             string password;
             List<string> file;
             string folder;
 
-            switch (str.ToUpperInvariant())
+            FileAttributes fas = File.GetAttributes(args[1]);
+
+            if ((fas & FileAttributes.Directory) == FileAttributes.Directory)
             {
-                case "F":
-                    AskFile(out file);
+                file = DirRoutine(args[1]);
+                Console.Clear();
 
-                    Console.WriteLine("Press enter to continue...");
-                    Console.ReadLine();
-                    Console.Clear();
+                Console.Write("Password: ");
+                password = AskPassword();
 
-                    Console.Write("Password: ");
-                    password = AskPassword();
+                Console.Clear();
 
-                    Console.Clear();
+                FileDecrypt(file, password);
+            }
+            else
+            {
+                file = new List<string>();
+                file.Add(args[1]);
 
-                    FileDecrypt(file, password);
-                    break;
+                Console.Write("Password: ");
+                password = AskPassword();
 
-                case "D":
-                    AskFolder(out folder);
+                Console.Clear();
 
-                    file = DirRoutine(folder);
-
-                    Console.WriteLine("Press enter to continue...");
-                    Console.ReadLine();
-                    Console.Clear();
-
-                    Console.Write("Password: ");
-                    password = AskPassword();
-
-                    Console.Clear();
-
-                    FileDecrypt(file, password);
-                    break;
-
-                case "B":
-                    Start();
-                    break;
-
-                default:
-                    FileOrFolderDecrypt();
-                    break;
+                FileDecrypt(file, password);
             }
         }
 
@@ -219,40 +174,6 @@ namespace SNCRYPT
             }
 
             return paths;
-        }
-
-        public static void AskFile(out List<string> file)
-        {
-            file = new List<string>();
-            OpenFileDialog fd = new OpenFileDialog();
-
-            if (fd.ShowDialog() == DialogResult.OK)
-            {
-                file.Add(fd.FileName);
-                Console.WriteLine(file[0]);
-            }
-            else
-            {
-                Console.WriteLine("Invalid File. Returning...");
-                Start();
-            }
-        }
-
-        public static void AskFolder(out string folder)
-        {
-            folder = null;
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-
-            if (fbd.ShowDialog() == DialogResult.OK)
-            {
-                folder = fbd.SelectedPath;
-                Console.WriteLine(folder + " <=== START POINT");
-            }
-            else
-            {
-                Console.WriteLine("Invalid Folder. Returning...");
-                Start();
-            }
         }
 
         public static string AskPassword()
@@ -337,7 +258,7 @@ namespace SNCRYPT
                 AES.IV = key.GetBytes(AES.BlockSize / 8);
 
                 //Cipher modes: http://security.stackexchange.com/questions/52665/which-is-the-best-cipher-mode-and-padding-mode-for-aes-encryption
-                AES.Mode = CipherMode.CFB;
+                AES.Mode = CipherMode.CBC;
 
                 // write salt to the begining of the output file, so in this case can be random every time
                 fsCrypt.Write(salt, 0, salt.Length);
@@ -354,7 +275,6 @@ namespace SNCRYPT
                 {
                     while ((read = fsIn.Read(buffer, 0, buffer.Length)) > 0)
                     {
-                        Application.DoEvents(); // -> for responsive GUI, using Task will be better!
                         cs.Write(buffer, 0, read);
                     }
 
@@ -423,7 +343,7 @@ namespace SNCRYPT
                 AES.Key = key.GetBytes(AES.KeySize / 8);
                 AES.IV = key.GetBytes(AES.BlockSize / 8);
                 AES.Padding = PaddingMode.PKCS7;
-                AES.Mode = CipherMode.CFB;
+                AES.Mode = CipherMode.CBC;
 
                 CryptoStream cs = new CryptoStream(fsCrypt, AES.CreateDecryptor(), CryptoStreamMode.Read);
 
@@ -438,7 +358,6 @@ namespace SNCRYPT
                 {
                     while ((read = cs.Read(buffer, 0, buffer.Length)) > 0)
                     {
-                        Application.DoEvents();
                         fsOut.Write(buffer, 0, read);
                     }
                 }
