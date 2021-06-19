@@ -1,4 +1,4 @@
-﻿namespace SNCRYPT.Common.Utils
+﻿namespace Bast.Common.Utils
 {
     public class InterfaceUtils
     {

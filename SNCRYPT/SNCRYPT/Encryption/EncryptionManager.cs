@@ -1,11 +1,11 @@
-﻿using SNCRYPT.Common.Utils;
+﻿using Bast.Common.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 
-namespace SNCRYPT.Common
+namespace Bast.Encryption
 {
     public class EncryptionManager
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace SNCRYPT.Common.Utils
+namespace Bast.Common.Utils
 {
     public class DirectoryUtils
     {

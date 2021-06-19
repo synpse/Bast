@@ -1,15 +1,13 @@
-﻿using SNCRYPT.Common;
-using System;
+﻿using Bast.Main;
 
-namespace SNCRYPT
+namespace Bast
 {
     class Program
     {
-        [STAThread]
         static void Main(string[] args)
         {
-            InteractionManager im = new InteractionManager(args);
-            im.Start();
+            BastInitializer bastInitializer = new BastInitializer(args);
+            bastInitializer.Init();
         }
     }
 }

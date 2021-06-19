@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 
-namespace SNCRYPT.Common.Utils
+namespace Bast.Common.Utils
 {
     public class SecurityUtils
     {

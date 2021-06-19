@@ -3,7 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>SNCRYPT.Program</StartupObject>
+    <StartupObject>Bast.Program</StartupObject>
+    <AssemblyName>Bast</AssemblyName>
+    <RootNamespace>Bast</RootNamespace>
   </PropertyGroup>
 
 </Project>

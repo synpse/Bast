@@ -1,22 +1,23 @@
-﻿using SNCRYPT.Common.Utils;
+﻿using Bast.Common.Utils;
+using Bast.Encryption;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace SNCRYPT.Common
+namespace Bast.Main
 {
-    public class InteractionManager
+    public class BastInitializer
     {
         private readonly string[] args;
-        private readonly EncryptionManager em;
+        private readonly EncryptionManager encryptionManager;
 
-        public InteractionManager(string[] args)
+        public BastInitializer(string[] args)
         {
             this.args = args;
-            this.em = new EncryptionManager();
+            this.encryptionManager = new EncryptionManager();
         }
 
-        public void Start()
+        public void Init()
         {
             Console.Clear();
 
@@ -83,7 +84,7 @@ namespace SNCRYPT.Common
 
                 if (password == confirmPw)
                 {
-                    em.FileEncrypt(file, password);
+                    encryptionManager.FileEncrypt(file, password);
                 }
                 else
                 {
@@ -105,7 +106,7 @@ namespace SNCRYPT.Common
 
                 if (password == confirmPw)
                 {
-                    em.FileEncrypt(file, password);
+                    encryptionManager.FileEncrypt(file, password);
                 }
                 else
                 {
@@ -147,7 +148,7 @@ namespace SNCRYPT.Common
 
                 Console.Clear();
 
-                em.FileDecrypt(file, password);
+                encryptionManager.FileDecrypt(file, password);
             }
             else
             {
@@ -159,7 +160,7 @@ namespace SNCRYPT.Common
 
                 Console.Clear();
 
-                em.FileDecrypt(file, password);
+                encryptionManager.FileDecrypt(file, password);
             }
         }
     }
