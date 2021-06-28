@@ -1,4 +1,6 @@
 ﻿using Bast.Main;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Bast
 {
@@ -6,8 +8,9 @@ namespace Bast
     {
         static void Main(string[] args)
         {
-            BastInitializer bastInitializer = new BastInitializer(args);
-            bastInitializer.Init();
+            List<string> argsList = args.ToList();
+            IBastInterface bastInterface = new BastInterface(argsList);
+            bastInterface.Init();
         }
     }
 }
