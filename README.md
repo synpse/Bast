@@ -19,9 +19,9 @@ Bast is a cross-platform security tool used to bulk encrypt and decrypt files.
 
 **Usage**
 
-BAST_EXECUTABLE E/D PATH_TO_FILE_OR_FOLDER)
-E => Encrypt
-D => Decrypt
+BAST_EXECUTABLE E/D PATH_TO_FILE_OR_FOLDER)  
+E => Encrypt  
+D => Decrypt  
 Example: ./PATH_TO_BAST/Bast.exe E ./PATH_TO_FILE_OR_FOLDER
 
 #### :heavy_exclamation_mark: Warnings
