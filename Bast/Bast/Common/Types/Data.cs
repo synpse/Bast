@@ -1,17 +1,17 @@
-﻿namespace Bast.Common.Types
+﻿using System.Security;
+
+namespace Bast.Common.Types
 {
     public class Data
     {
         public string S { get; set; }
         public string Name { get; set; }
-        public int Order { get; set; }
-        public string Password { get; set; }
+        public SecureString Password { get; set; }
 
-        public Data(string s, string name, int order, string password)
+        public Data(string s, string name, SecureString password)
         {
             S = s;
             Name = name;
-            Order = order;
             Password = password;
         }
     }

@@ -25,3 +25,16 @@ C:\Users\TiagoFerreiraAlves\OneDrive - VortalSA\Documents\GitHub\Bast\Bast\Bast\
 C:\Users\TiagoFerreiraAlves\OneDrive - VortalSA\Documents\GitHub\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.dll
 C:\Users\TiagoFerreiraAlves\OneDrive - VortalSA\Documents\GitHub\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.pdb
 C:\Users\TiagoFerreiraAlves\OneDrive - VortalSA\Documents\GitHub\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.genruntimeconfig.cache
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\bin\Debug\netcoreapp3.1\Bast.exe
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\bin\Debug\netcoreapp3.1\Bast.deps.json
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\bin\Debug\netcoreapp3.1\Bast.runtimeconfig.json
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\bin\Debug\netcoreapp3.1\Bast.runtimeconfig.dev.json
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\bin\Debug\netcoreapp3.1\Bast.dll
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\bin\Debug\netcoreapp3.1\Bast.pdb
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.csprojAssemblyReference.cache
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.AssemblyInfoInputs.cache
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.AssemblyInfo.cs
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.csproj.CoreCompileInputs.cache
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.dll
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.pdb
+C:\Users\tfaon\Desktop\Projects\1.CURRENT\Bast\Bast\Bast\obj\Debug\netcoreapp3.1\Bast.genruntimeconfig.cache

@@ -9,7 +9,7 @@ namespace Bast
         static void Main(string[] args)
         {
             List<string> argsList = args.ToList();
-            IBastInterface bastInterface = new BastInterface(argsList);
+            BastInterface bastInterface = new BastInterface(argsList);
             bastInterface.Init();
         }
     }

@@ -1,15 +1,18 @@
-﻿using Bast.Common.Utils;
-using Bast.Encryption;
+﻿using Bast.Common.Enums;
+using Bast.Common.Utils;
+using Bast.Operations;
+using Bast.Operations.Encryption;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security;
 
 namespace Bast.Main
 {
-    public class BastInterface : IBastInterface
+    public class BastInterface
     {
         private readonly List<string> args;
-        private readonly IEncryptionManager encryptionManager;
+        private readonly IOperationManager encryptionManager;
 
         public BastInterface(List<string> args)
         {
@@ -33,11 +36,11 @@ namespace Bast.Main
             {
                 switch (args[0].ToUpperInvariant())
                 {
-                    case "E":
+                    case nameof(OperationKindAbrev.E):
                         FileOrFolderEncrypt(args);
                         break;
 
-                    case "D":
+                    case nameof(OperationKindAbrev.D):
                         FileOrFolderDecrypt(args);
                         break;
 
@@ -47,15 +50,13 @@ namespace Bast.Main
                 }
             }
 
-            Console.WriteLine("Done. Shutting down...");
+            Console.WriteLine(ANSIColors.Blue("Done. Shutting down..."));
         }
 
         private void FileOrFolderEncrypt(List<string> args)
         {
             Console.Clear();
 
-            string password;
-            string confirmPw;
             List<string> file;
             FileAttributes fas;
 
@@ -65,13 +66,13 @@ namespace Bast.Main
             }
             catch (Exception ex)
             {
-                Console.WriteLine("File or folder not found or path is invalid." + ex.HResult);
+                Console.WriteLine(ANSIColors.Red("File or folder not found or path is invalid.") + ex.HResult);
                 return;
             }
 
             if ((fas & FileAttributes.Directory) == FileAttributes.Directory)
             {
-                Console.WriteLine("Folder mode enabled. Files included:");
+                Console.WriteLine(ANSIColors.DarkYellow("Folder mode enabled. Files included:"));
                 file = DirectoryUtils.DirRoutine(args[1]);
 
                 Console.WriteLine($"{file.Count} files found. Press any key to continue...");
@@ -79,20 +80,21 @@ namespace Bast.Main
                 Console.Clear();
 
                 Console.Write("Set a password: ");
-                password = SecurityUtils.AskPassword();
+                SecureString password = SecurityUtils.AskPassword();
 
                 Console.Write("\nConfirm password: ");
-                confirmPw = SecurityUtils.AskPassword();
+                SecureString confirmPw = SecurityUtils.AskPassword();
 
                 Console.Clear();
 
-                if (password == confirmPw)
+                if (SecurityUtils.PasswordsMatch(password, confirmPw))
                 {
-                    encryptionManager.FileEncrypt(file, password);
+                    confirmPw.Clear();
+                    encryptionManager.LaunchOperation(OperationKind.Encrypt, file, password);
                 }
                 else
                 {
-                    Console.WriteLine("Passwords do not match! Returning...");
+                    Console.WriteLine(ANSIColors.Red("Passwords do not match! Returning..."));
                 }
             }
             else
@@ -101,20 +103,21 @@ namespace Bast.Main
                 file.Add(args[1]);
 
                 Console.Write("Set a password: ");
-                password = SecurityUtils.AskPassword();
+                SecureString password = SecurityUtils.AskPassword();
 
                 Console.Write("\nConfirm password: ");
-                confirmPw = SecurityUtils.AskPassword();
+                SecureString confirmPw = SecurityUtils.AskPassword();
 
                 Console.Clear();
 
-                if (password == confirmPw)
+                if (SecurityUtils.PasswordsMatch(password, confirmPw))
                 {
-                    encryptionManager.FileEncrypt(file, password);
+                    confirmPw.Clear();
+                    encryptionManager.LaunchOperation(OperationKind.Encrypt, file, password);
                 }
                 else
                 {
-                    Console.WriteLine("Passwords do not match! Returning...");
+                    Console.WriteLine(ANSIColors.Red("Passwords do not match! Returning..."));
                 }
             }
         }
@@ -123,9 +126,7 @@ namespace Bast.Main
         {
             Console.Clear();
 
-            string password;
             List<string> file;
-
             FileAttributes fas;
 
             try
@@ -134,13 +135,13 @@ namespace Bast.Main
             }
             catch (Exception ex)
             {
-                Console.WriteLine("File or folder not found or path is invalid." + ex.HResult);
+                Console.WriteLine(ANSIColors.Red("File or folder not found or path is invalid.") + ex.HResult);
                 return;
             }
 
             if ((fas & FileAttributes.Directory) == FileAttributes.Directory)
             {
-                Console.WriteLine("Folder mode enabled. Files included:");
+                Console.WriteLine(ANSIColors.DarkYellow("Folder mode enabled. Files included:"));
                 file = DirectoryUtils.DirRoutine(args[1]);
 
                 Console.WriteLine($"{file.Count} files found. Press any key to continue...");
@@ -148,11 +149,11 @@ namespace Bast.Main
                 Console.Clear();
 
                 Console.Write("Password: ");
-                password = SecurityUtils.AskPassword();
+                SecureString password = SecurityUtils.AskPassword();
 
                 Console.Clear();
 
-                encryptionManager.FileDecrypt(file, password);
+                encryptionManager.LaunchOperation(OperationKind.Decrypt, file, password);
             }
             else
             {
@@ -160,11 +161,11 @@ namespace Bast.Main
                 file.Add(args[1]);
 
                 Console.Write("Password: ");
-                password = SecurityUtils.AskPassword();
+                SecureString password = SecurityUtils.AskPassword();
 
                 Console.Clear();
 
-                encryptionManager.FileDecrypt(file, password);
+                encryptionManager.LaunchOperation(OperationKind.Decrypt, file, password);
             }
         }
     }
