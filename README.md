@@ -13,7 +13,7 @@ Bast is a cross-platform security tool used to bulk encrypt and decrypt files.
 - **Blazing fast!** Every file is encrypted and decrypted on its own thread, the only limit is your storage drive´s speed;
 - **Free and Open-Source.** Now and always!
 
-#### :small_blue_diamond: Usage
+#### :small_blue_diamond: How-to
 - Clone Bast´s repo and compile the code yourself
 - On your terminal of choice call Bast.
 
