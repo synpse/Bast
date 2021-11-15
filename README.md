@@ -6,7 +6,7 @@ Bast is a cross-platform security tool used to bulk encrypt and decrypt files.
 ### :heavy_check_mark: Features
 - **Enterprise grade encryption.** Bast uses AES256 encryption with a CBC cypher mode;
 - **Custom key generation.** User defined passwords are repeatedly hashed with a salt and with high iteration counts before being turned into a key;
-- **Security. Always!** When encrypting, old files are overriden with junk data before being deleted. Old files become unrecoverable.
+- **Security. Always!** When encrypting, old files are overriden with junk data before being deleted. Old files become harder to recover.
 - **Multi-platform.** Built to run on both Windows and Linux based platforms (not tested on MacOS)
 - **Worry-Free.** Sometimes the worst happens. Your drive fails, light goes out. Bast has you covered, each file is only safely deleted after each encrytion or decryption is successful so that no loss of data ever occurs.
 - **Easy to use.** Bast is ran with one single command and requires no setup;
